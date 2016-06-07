@@ -1,0 +1,59 @@
+//- 首页
+//- author : 崔承杰
+//- date : 2016.05.17
+//- email: ccjie@gzidc.com
+//-------------------------------------------
+extends ../../base/base
+block append base_head
+  //- 引入index.css,由于fis兼容express,引入生成后路径
+  link(rel="stylesheet", type="text/css", href="/css/info.css")
+
+block append left
+
+  include ../../base/left_nav
+
+block append main
+  //- 内容
+  .main.max
+    .mainTitle 充值记录
+    .mainContent
+      .jList.contentBox
+        table.jTable
+          thead
+            tr
+              th.aCenter(width='100') 金额
+              th.aCenter(width='160') 充值时间
+              th.aCenter(width='160') 操作人
+              th.aCenter(width='160') 充值时间
+              th.aCenter(width='160') 状态
+              th 备注
+          tbody
+            -
+              var lists = [
+              {price: '17.00', time: '2016-05-31 11:22', confirmor: '固定菜式', confirmTime: '2016-05-31 11:22', status: 1, remark: ''},
+              {price: '17.00', time: '2016-05-31 11:22', confirmor: '固定菜式', confirmTime: '2016-05-31 11:22', status: 1, remark: ''},
+              {price: '17.00', time: '2016-05-31 11:22', confirmor: '固定菜式', confirmTime: '2016-05-31 11:22', status: 0, remark: ''},
+              {price: '17.00', time: '2016-05-31 11:22', confirmor: '固定菜式', confirmTime: '2016-05-31 11:22', status: 1, remark: ''},
+              {price: '17.00', time: '2016-05-31 11:22', confirmor: '固定菜式', confirmTime: '2016-05-31 11:22', status: 0, remark: ''},
+              {price: '17.00', time: '2016-05-31 11:22', confirmor: '固定菜式', confirmTime: '2016-05-31 11:22', status: 0, remark: ''},
+              {price: '17.00', time: '2016-05-31 11:22', confirmor: '固定菜式', confirmTime: '2016-05-31 11:22', status: 1, remark: ''},
+              {price: '17.00', time: '2016-05-31 11:22', confirmor: '固定菜式', confirmTime: '2016-05-31 11:22', status: 1, remark: ''}
+              ]
+            each list in lists
+              tr
+                td.aCenter #{list.price}
+                td.aCenter #{list.time}
+                td.aCenter #{list.confirmor}
+                td.aCenter #{list.confirmTime}
+                td(class=!list.remark ? 'aCenter' : '') #{list.remark ? list.remark : '无'}
+                td.aCenter
+                  if(!list.status)
+                    span.jBtn.minBtn 确认
+                  else
+                    span.greed 已确认
+
+block append base_foot
+  //- 全局脚本，生成base.js
+  script(type="text/javascript", src='/js/index.js')
+  script.
+    console.log(1)

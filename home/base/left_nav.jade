@@ -1,0 +1,22 @@
+.leftNav
+  -
+    var navs = [
+      [
+      {title: '订单列表', href: 'order.html', active: false},
+      {title: '个人资料', href: 'info.html', active: false},
+      {title: '密码管理', href: 'password.html', active: false},
+      {title: '充值记录', href: 'pay_log.html', active: false}
+      ],
+      [
+      {title: '点餐管理', href: 'order_manage.html', active: true},
+      {title: '添加餐单', href: 'add_menu.html', active: false},
+      {title: '充值管理', href: 'pay_manage.html', active: false},
+      {title: '用户管理', href: 'user_manage.html', active: false}
+      ]
+    ]
+  -for(var i=0; i< navs.length; i++)
+    ul
+      each nav in navs[i]
+        li.navList(class=nav.active ? 'active' : '')
+          a.navBlock(href=nav.href)
+            span.navName #{nav.title}

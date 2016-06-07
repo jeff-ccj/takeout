@@ -1,0 +1,26 @@
+//- 首页
+//- author : 崔承杰
+//- date : 2016.05.17
+//- email: ccjie@gzidc.com
+//-------------------------------------------
+extends ../base/base
+block append base_head
+  //- 引入index.css,由于fis兼容express,引入生成后路径
+  link(rel="stylesheet", type="text/css", href="/css/login.css")
+
+block append main
+
+  //- 登陆
+  section.loginBox
+    .loginForm
+      .loFormTitle 点餐系统
+      .loFormList
+        input#username.lUser.jTxt(type='text', placeholder='请输入账号')
+      .loFormList
+        input#password.lPwd.jTxt(type='password', placeholder='请输入密码')
+      .loFormBtn
+        input.jBtn(type='button', value='登陆')
+
+block append base_foot
+  //- 全局脚本，生成base.js
+  script(type="text/javascript", src='/js/login.js')

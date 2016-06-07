@@ -1,0 +1,81 @@
+//- 首页
+//- author : 崔承杰
+//- date : 2016.05.17
+//- email: ccjie@gzidc.com
+//-------------------------------------------
+extends ../../base/base
+block append base_head
+  //- 引入index.css,由于fis兼容express,引入生成后路径
+  link(rel="stylesheet", type="text/css", href="/css/info.css")
+
+block append left
+
+  .canteen.contentBox
+    ul
+      -
+        var canteens = [
+          [
+            {title: '订单列表', href: '#', active: true},
+            {title: '个人资料', href: '#', active: false},
+            {title: '充值记录', href: '#', active: false}
+          ],
+          [
+          {title: '点餐列表', href: '#', active: false},
+          {title: '添加餐单', href: '#', active: false},
+          {title: '充值管理', href: '#', active: false},
+          {title: '用户管理', href: '#', active: false}
+          ]
+        ]
+      each canteen in canteens
+        li.canteenList
+          a.canteenBlock(class=canteen.active ? 'active' : '', href=canteen.href)
+            span.canteenName #{canteen.title}
+            if(canteen.tips)
+              span.canteenTips #{canteen.tips}
+
+block append main
+  //- 内容
+  .main
+    .mainTitle 用户资料
+    .mainContent
+      .form
+        .formList
+          .formTitle 标题
+          .formContent
+            input.formTxt(type='text', placeholder='请输入内容')
+        .formList
+          .formTitle 单选
+          .formContent
+            label.formLabel
+              input.formRadio(type='radio', value='1', name='testR')
+              span 选项一
+            label.formLabel
+              input.formRadio(type='radio', value='2', name='testR')
+              span 选项二
+            label.formLabel
+              input.formRadio(type='radio', value='3', name='testR')
+              span 选项三
+        .formList
+          .formTitle 多选
+          .formContent
+            label.formLabel
+              input.formCheckbox(type='checkbox', value='1', name='testC')
+              span 选项一
+            label.formLabel
+              input.formCheckbox(type='checkbox', value='2', name='testC')
+              span 选项二
+            label.formLabel
+              input.formCheckbox(type='checkbox', value='3', name='testC')
+              span 选项三
+        .formList
+          .formTitle 备注
+          .formContent
+            textarea.formTxt(placeholder='请输入内容')
+        .formBtnBox
+          .formBtn 提交
+
+block append base_foot
+  //- 全局脚本，生成base.js
+  script(type="text/javascript", src='/js/index.js')
+  script.
+    console.log(1)

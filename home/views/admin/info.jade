@@ -1,0 +1,54 @@
+//- 首页
+//- author : 崔承杰
+//- date : 2016.05.17
+//- email: ccjie@gzidc.com
+//-------------------------------------------
+extends ../../base/base
+block append base_head
+  //- 引入index.css,由于fis兼容express,引入生成后路径
+  link(rel="stylesheet", type="text/css", href="/css/info.css")
+
+block append left
+
+  include ../../base/left_nav
+
+block append main
+  //- 内容
+  .main
+    .mainTitle 用户资料
+    .mainContent.contentBox
+      .form
+        .formList
+          .formTitle 姓名
+          .formContent
+            input.formTxt(type='text', placeholder='请输入内容')
+        .formList
+          .formTitle 登录名
+          .formContent
+            input.formTxt(type='text', placeholder='请输入内容')
+        .formList
+          .formTitle 姓名
+          .formContent
+            select.formSelect
+              option 技术部
+              option 销售部
+        .formList
+          .formTitle 性别
+          .formContent
+            label.formLabel
+              input.formRadio(type='radio', value='1', name='testR')
+              span 男
+            label.formLabel
+              input.formRadio(type='radio', value='2', name='testR')
+              span 女
+            label.formLabel
+              input.formRadio(type='radio', value='3', name='testR')
+              span 不详
+        .formBtnBox
+          .formBtn 提交
+
+block append base_foot
+  //- 全局脚本，生成base.js
+  script(type="text/javascript", src='/js/index.js')
+  script.
+    console.log(1)

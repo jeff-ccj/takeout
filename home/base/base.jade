@@ -1,0 +1,53 @@
+//- 模板全局页面
+//- author : IDC
+//- date : 2016-2-1
+//- email: 
+//-------------------------------------------
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    //- 头
+    block base_head
+      //- 全局样式, 生成base.css
+      link(rel="stylesheet", type="text/css", href="/static/css/base.css")
+  body
+    //- 顶部内容
+    block header
+
+    //- 左侧内容
+    .leftBody
+
+      //-用户信息
+      header#user.contentBox.user
+        .userPic
+         img(src='/img/user.jpg')
+        .userInfo
+         .uName
+           span Jeff Tsui
+         .uMoney.money 66.00
+         .uTool
+           a(href='#', title='首页')
+             i.iconfont.icon-shouye2
+           a(href='#', title='个人中心')
+             i.iconfont.icon-gerenzhongxin
+           a(href='#', title='充值')
+             i.iconfont.icon-qiandai
+           a(href='#', title='退出')
+             i.iconfont.icon-tuichu
+
+      //下部分信息
+      .leftContent.contentBox
+        block left
+
+
+    //- 中间内容
+    block main
+
+    //- 底部内容
+    block footer
+
+block base_foot
+      //- 全局脚本，生成base.js
+      script(type="text/javascript", src='/static/js/base.js')

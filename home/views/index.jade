@@ -1,0 +1,103 @@
+//- 首页
+//- author : 崔承杰
+//- date : 2016.05.17
+//- email: ccjie@gzidc.com
+//-------------------------------------------
+extends ../base/base
+block append base_head
+  //- 引入index.css,由于fis兼容express,引入生成后路径
+  link(rel="stylesheet", type="text/css", href="/css/index.css")
+
+
+//-餐厅列表
+block append left
+  .canteen
+    ul
+      -
+        var canteens = [
+        {title: '肯德基', href: '#', active: false},
+        {title: '都城', href: '#', active: true},
+        {title: '点都德', tips:'如果有简介', href: '#', active: false},
+        {title: '轰咖咖喱饭', href: '#', active: false}
+        ]
+      each canteen in canteens
+        li.canteenList
+          a.canteenBlock(class=canteen.active ? 'active' : '', href=canteen.href)
+            span.canteenName #{canteen.title}
+            if(canteen.tips)
+              span.canteenTips #{canteen.tips}
+
+block append main
+
+  //- 内容
+  .main
+    #menuClass.menuClass.contentBox
+      -
+        var menuClasses = [
+        {href: '#aa', title: '超值套餐', active: true},
+        {href: '#bb', title: '美味汉堡'},
+        {href: '#cc', title: '轻松卷类'},
+        {href: '#dd', title: '吮指原味鸡'}
+        ]
+      each menuClass in menuClasses
+        a(href=menuClass.href, class=menuClass.active ? 'active' : '') #{menuClass.title}
+
+    -
+      var menus = [
+      {_id: '11', img: '/img/test.jpg', title:'麻婆豆腐饭', price: '12', volume: '0'},
+      {_id: '22', img: '/img/test.jpg', title:'麻婆豆腐饭', price: '22', volume: '0'},
+      {_id: '33', title:'麻婆豆腐饭', price: '23', volume: '666'},
+      {_id: '44', title:'麻婆豆腐饭', price: '16', volume: '0'},
+      {_id: '55', title:'麻婆豆腐饭', price: '32', volume: '0'},
+      {_id: '66', img: '/img/test.jpg', title:'麻婆豆腐饭', price: '22', volume: '0'},
+      {_id: '77', title:'麻婆豆腐饭', price: '23', volume: '666'},
+      {_id: '88', title:'麻婆豆腐饭', price: '16', volume: '0'},
+      {_id: '99', title:'麻婆豆腐饭', price: '32', volume: '0'},
+      {_id: '00', img: '/img/test.jpg', title:'麻婆豆腐饭', price: '42', volume: '0'}
+      ]
+    #menus.menus
+      #aa.menuClassTitle 超值套餐
+      .menusBox
+        ul.menuList
+          each menu in menus
+            li.contentBox
+              if(menu.img)
+                .menuPic
+                  img(src=menu.img)
+              .menuContent(class=menu.img ? 'hasImg' : '')
+                .menuTitle #{menu.title}
+                .menuTips 月售 #{menu.volume} 份
+                .menuPrice.money #{menu.price}
+              .menuAddBox.mToolBox(data-id=menu._id)
+                a.menuAddBtn(href='#') 加入购物车
+
+
+
+  //- 购物车
+  .menusCar
+    .cartTitle 购物车
+      //span.carClear 清空
+    ul#cartMenus.cartMenus
+    .cartContent
+      i.iconfont.icon-cart
+      span#cCount.cCount 0
+      span#cPrice.cPrice.money 0
+      span.cartSubmit 结算
+
+  .popupWindow
+    .pWindow
+      header.pHeader
+        span.pTitle 充值
+        a.pClose
+      section.pContent
+        input.jTxt(type='text', placeholder='请输入需要充值金额')
+        .payTips 确定充值后请联系管理员确认才可生效
+      footer.pFooter
+        .payButton
+          input.jBtn(type='button', value='充值')
+
+block append base_foot
+  //- 全局脚本，生成base.js
+  script(type="text/javascript", src='/js/index.js')
+  script.
+    console.log(1)

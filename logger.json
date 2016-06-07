@@ -1,0 +1,24 @@
+{
+  "appenders": [
+    {
+      "type": "console"
+    },
+    {
+      "type": "file",
+      "filename": "./logs/con-log-${opts:serverId}.log",
+      "pattern": "connector",
+      "absolute": true,
+      "layout": {
+        "type": "basic"
+      },
+      "alwaysIncludePattern": true,
+      "category": "logInfo"
+    }
+  ],
+  "levels": {
+    "logInfo": "DEBUG"
+  },
+  "replaceConsole": true,
+  "lineDebug": true,
+  "rawMessage": true
+}

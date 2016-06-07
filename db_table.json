@@ -1,0 +1,90 @@
+{
+  "sessions": {
+    "session": "String",
+    "expires": "Date"
+  },
+  "users": {
+    "username": { "type": "String", "unique": true },
+    "password": "String",
+    "power": "Number",
+    "money": "Double",
+    "realName": "String",
+    "sex": "Number",
+    "time": {
+      "date": "Date",
+      "year": "String",
+      "month": "String",
+      "day": "String",
+      "minute": "String"
+    }
+  },
+  "department": {
+    "title": { "type": "String", "unique": true }
+  },
+  "orders": {
+    "mTitle": "String",
+    "money": "Double",
+    "status": "Number",
+    "amount": "Number",
+    "canteenId": "ObjectID",
+    "canteen": "String",
+    "remark": "String",
+    "time": {
+      "date": "Date",
+      "year": "String",
+      "month": "String",
+      "day": "String",
+      "minute": "String"
+    }
+  },
+  "menus": {
+    "title": { "type": "String"},
+    "price": "Double",
+    "count": "Number",
+    "img": "String",
+    "classId": "ObjectID",
+    "class": "String",
+    "canteenId": "ObjectID",
+    "canteen": "String",
+    "isShow": "Boolean",
+    "time": {
+      "date": "Date",
+      "year": "String",
+      "month": "String",
+      "day": "String",
+      "minute": "String"
+    }
+  },
+  "class": {
+    "title": "String",
+    "canteenId": "ObjectID",
+    "isShow": "Boolean",
+    "canteen": "String"
+  },
+  "canteens": {
+    "title": "String",
+    "describe": "String"
+  },
+  "vouchers": {
+    "money": "Double",
+    "username": "String",
+    "userId": "String",
+    "confirm": "Boolean",
+    "confirmId": "ObjectID",
+    "confirmName": "String",
+    "confirmTime": {
+      "date": "Date",
+      "year": "String",
+      "month": "String",
+      "day": "String",
+      "minute": "String"
+    },
+    "time": {
+      "date": "Date",
+      "year": "String",
+      "month": "String",
+      "day": "String",
+      "minute": "String"
+    }
+  }
+}

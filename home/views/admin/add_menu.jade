@@ -1,0 +1,48 @@
+//- 首页
+//- author : 崔承杰
+//- date : 2016.05.17
+//- email: ccjie@gzidc.com
+//-------------------------------------------
+extends ../../base/base
+block append base_head
+  //- 引入index.css,由于fis兼容express,引入生成后路径
+  link(rel="stylesheet", type="text/css", href="/css/info.css")
+
+block append left
+
+  include ../../base/left_nav
+
+block append main
+  //- 内容
+  .main
+    .mainTitle 添加菜单
+    .mainContent.contentBox
+      .form
+        .formList
+          .formTitle 菜式名
+          .formContent
+            input.formTxt(type='text', placeholder='请输入菜单名')
+            .formTips 如需添加多个请用,隔开菜式名
+        .formList
+          .formTitle 餐厅
+          .formContent
+            select.formSelect
+              option 技术部
+              option 销售部
+            a.jBtn.minBtn 添加餐厅
+        .formList
+          .formTitle 分类
+          .formContent
+            select.formSelect
+              option 技术部
+              option 销售部
+            a.jBtn.minBtn 添加分类
+
+        .formBtnBox
+          .formBtn 提交
+
+block append base_foot
+  //- 全局脚本，生成base.js
+  script(type="text/javascript", src='/js/index.js')
+  script.
+    console.log(1)

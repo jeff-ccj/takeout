@@ -1,0 +1,449 @@
+/*
+ * @class   样式-公共
+ * @author  Jeff Tsui
+ * @date    16.05.17
+ * @mail    jeff.ccjie@gmail.com
+ */
+
+//@require normalize.css
+html, body{
+  height: 100%;
+  font-family: sans-serif, "Microsoft YaHei";
+}
+html{
+  font-size: 10px;
+}
+body{
+  background-color: #f7f7f7;
+  font-size: 1.6rem;
+}
+
+.contentBox{
+  background-color: #ffffff;
+  border-radius: 2px 2px 0 0;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12);
+}
+
+.money:before{
+  content: '￥';
+}
+
+a{
+  text-decoration: none;
+}
+
+
+
+
+
+
+@font-face {font-family: "iconfont";
+  src: url('font/iconfont.eot?t=1463561199'); /* IE9*/
+  src: url('font/iconfont.eot?t=1463561199#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('font/iconfont.woff?t=1463561199') format('woff'), /* chrome, firefox */
+  url('font/iconfont.ttf?t=1463561199') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('font/iconfont.svg?t=1463561199#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+
+//图标
+.iconfont {
+  font-family:"iconfont" !important;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-shouye2:before { content: "\e600"; }
+.icon-gerenzhongxin:before { content: "\e64b"; }
+.icon-qiandai:before { content: "\e601"; }
+.icon-tuichu:before { content: "\e652"; }
+.icon-cart:before { content: "\e605"; }
+
+//表单
+input.jTxt, textarea.jTxt{
+  height: 30px;
+  width: 240px;
+  padding: 5px 8px;
+  font-size: 1.4rem;
+  color: #383838;
+  line-height: 20px;
+  border-radius: 3px;
+  background-color: #ffffff;
+  border: 1px solid #d1d1d1;
+}
+textarea.jTxt{
+  height: 60px;
+}
+.jBtn{
+  display: inline-block;
+  padding: 6px 12px;
+  min-width: 96px;
+  background-color: #03a9f4;
+  border-color: #03a9f4;
+  color: #fff;
+  font-size: 1.4rem;
+  line-height: 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 2px;
+  text-align: center;
+  &:active{
+    background-color: #079bde;
+  }
+  &.minBtn{
+    width: auto;
+    min-width: 0;
+    padding: 0 12px;
+    font-size: 1.2rem;
+  }
+}
+
+
+
+
+
+
+
+//弹窗
+.popupWindow{
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, .5);
+  .pWindow{
+    margin: 100px auto 0;
+    width: 500px;
+    min-height: 100px;
+    background-color: #fafafa;
+    box-shadow: 0 1px 7px #ccc;
+    border-radius: 4px;
+    animation: popup 1000ms ease;
+    -moz-animation: popup 1000ms ease; /* Firefox */
+    -webkit-animation: popup 1000ms ease; /* Safari and Chrome */
+    -o-animation: popup 1000ms ease; /* Opera */
+  }
+  .pHeader{
+    position: relative;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 20px 40px 20px 20px;
+    font-size: 1.8rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: top;
+    white-space: nowrap;
+    .pClose{
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      height: 40px;
+      width: 40px;
+      color: #666;
+      line-height: 40px;
+      font-size: 1.8rem;
+      text-align: center;
+      cursor: pointer;
+      &:after{
+        content: "X";
+      }
+    }
+  }
+  .pContent{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  .pFooter{
+    overflow: hidden;
+    padding: 20px;
+  }
+}
+
+
+@keyframes popup
+{
+  0% {
+    transform: translateY(-1000px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+}
+
+@-moz-keyframes popup /* Firefox */
+{
+  0% {
+    transform: translateY(-1000px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+}
+
+@-webkit-keyframes popup /* Safari and Chrome */
+{
+  0% {
+    transform: translateY(-1000px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+}
+
+@-o-keyframes popup /* Opera */
+{
+  0% {
+    transform: translateY(-1000px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+}
+
+//左侧
+.leftBody{
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 275px;
+}
+
+//用户信息
+.user{
+  height: 85px;
+  padding: 10px;
+  overflow: hidden;
+  background: url("../img/user_bg.jpg") no-repeat;
+  .userPic{
+    float: left;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    overflow: hidden;
+    img{
+      border-radius: 50%;
+      width: 100%;
+    }
+  }
+  .userInfo{
+    position: relative;
+    margin: 5px 0 0 100px;
+    color: #ffffff;
+    .uName{
+      display: block;
+      font-size: 1.8rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      vertical-align: top;
+      white-space: nowrap;
+    }
+    .uMoney{
+      margin: 4px 0 0 -3px;
+      font-size: 1.4rem;
+    }
+    .uTool{
+      margin: 8px 0 0 -10px;
+      font-size: 1.8rem;
+      a{
+        display: inline-block;
+        margin: 0 5px;
+        padding: 0 5px;
+        color: #ffffff;
+        .iconfont{
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+.leftContent{
+  position: absolute;
+  top: 125px;
+  width: 100%;
+  bottom: 0;
+  overflow-y: auto;
+}
+
+
+//中间部分
+.main{
+  margin: 0 235px 0 310px;
+  max-width: 880px;
+  min-height: 90%;
+  padding-top: 15px;
+  &.max{
+    max-width: 1200px;
+    margin: 0 100px 0 310px;
+  }
+  .mainTitle{
+    padding: 10px 0 20px 5px;
+    font-size: 2rem;
+  }
+  .mainContent{
+    padding: 20px;
+  }
+}
+
+//表单
+$formHeight: 36px;
+.form{
+  .formList{
+    padding: 10px 0;
+    overflow: hidden;
+    font-size: 1.6rem;
+    color: #666666;
+  }
+  .formTitle{
+    float: left;
+    width: 100px;
+    line-height: 36px;
+    padding-right: 20px;
+    text-align: right;
+
+  }
+  .formContent{
+    margin-left: 120px;
+    .minBtn{
+      margin-left: 10px;
+    }
+  }
+  .formTxt{
+    width: 60%;
+    height: $formHeight;
+    padding: 0 6px;
+    font-size: 1.4rem;
+    line-height: $formHeight;
+    border: 1px solid #e1e1e1;
+    border-radius: 3px;
+  }
+  textarea.formTxt{
+    height: 100px;
+  }
+  .formLabel{
+    padding-right: 10px;
+    font-size: 1.4rem;
+    line-height: $formHeight;
+    span{
+      padding-left: 3px;
+    }
+  }
+  .formRadio{
+  }
+  .formCheckbox{
+  }
+  .formSelect{
+    height: $formHeight;
+    padding: 0 10px 0 0;
+    font-size: 1.4rem;
+    option{
+      line-height: 28px;
+    }
+  }
+  .formTips{
+    padding: 5px 0;
+    font-size: 1.4rem;
+    color: #999999;
+  }
+  .formBtnBox{
+    padding: 15px 120px 100px;
+    .formBtn{
+      display: inline-block;
+      width: 120px;
+      line-height: $formHeight;
+      border-radius: 3px;
+      text-align: center;
+      color: #ffffff;
+      background-color: #0089DC;
+      cursor: pointer;
+      &:active{
+        background-color: #0080dc + #111;
+      }
+    }
+  }
+}
+
+
+//左侧导航
+.leftNav{
+  ul{
+    margin: 0 0 20px;
+    padding: 0;
+    list-style-type: none;
+    .navList{
+      margin: 0 10px;
+      padding: 6px 2px;
+      border-bottom: 1px solid #e1e1e1;
+      &:hover{
+        padding: 6px 12px;
+        margin: 0;
+        background-color: #f1f1f1;
+      }
+      &.active{
+        padding: 6px 12px;
+        margin: 0;
+        background-color: #17A4FA;
+        .navBlock{
+          color: #ffffff;
+        }
+      }
+    }
+  }
+  .navBlock{
+    display: block;
+    color: #888888;
+    font-size: 1.5rem;
+    line-height: 36px;
+  }
+}
+
+
+//充值弹窗
+.payTips{
+  padding: 5px;
+  color: #999999;
+  font-size: 1.2rem;
+}
+.payButton{
+  float: right;
+}
+
+
+
+// 表格
+.jList{
+  margin: -20px;
+  .jTable{
+    width: 100%;
+    color: #666666;
+    tr{
+      &:hover{
+        background-color: #f1f1f1;
+      }
+    }
+    th, td{
+      padding: 14px 15px;
+      border-bottom: 1px solid #ededed;
+    }
+    th{
+      padding: 16px 10px;
+    }
+    td{
+      line-height: 20px;
+      font-size: 1.4rem;
+      color: #888888;
+      a{
+        margin: 0 5px;
+        color: #17a4fa;
+      }
+    }
+    .aCenter{
+      text-align: center;
+    }
+  }
+}

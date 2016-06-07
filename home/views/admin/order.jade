@@ -1,0 +1,57 @@
+//- 首页
+//- author : 崔承杰
+//- date : 2016.05.17
+//- email: ccjie@gzidc.com
+//-------------------------------------------
+extends ../../base/base
+block append base_head
+  //- 引入index.css,由于fis兼容express,引入生成后路径
+  link(rel="stylesheet", type="text/css", href="/css/info.css")
+
+block append left
+
+  include ../../base/left_nav
+
+block append main
+  //- 内容
+  .main.max
+    .mainTitle 订单列表
+    .mainContent
+      .jList.contentBox
+        table.jTable
+          thead
+            tr
+              th(width='160') 菜名
+              th(width='60') 价格
+              th(width='60') 数量
+              th(width='100') 餐厅
+              th(width='100') 分类
+              th(width='160') 时间
+              th 备注
+          tbody
+            -
+              var lists = [
+                {name: '盐焗手撕鸡', price: '17.00', count: '1', canteen: '都城', class: '固定菜式', time: '2016-05-31 11:22', remark: ''},
+                {name: '盐焗手撕鸡', price: '17.00', count: '1', canteen: '都城', class: '固定菜式', time: '2016-05-31 11:22', remark: ''},
+                {name: '盐焗手撕鸡', price: '17.00', count: '1', canteen: '都城', class: '固定菜式', time: '2016-05-31 11:22', remark: ''},
+                {name: '盐焗手撕鸡', price: '17.00', count: '1', canteen: '都城', class: '固定菜式', time: '2016-05-31 11:22', remark: ''},
+                {name: '盐焗手撕鸡', price: '17.00', count: '1', canteen: '都城', class: '固定菜式', time: '2016-05-31 11:22', remark: ''},
+                {name: '盐焗手撕鸡', price: '17.00', count: '1', canteen: '都城', class: '固定菜式', time: '2016-05-31 11:22', remark: ''},
+                {name: '盐焗手撕鸡', price: '17.00', count: '1', canteen: '都城', class: '固定菜式', time: '2016-05-31 11:22', remark: ''},
+                {name: '盐焗手撕鸡', price: '17.00', count: '1', canteen: '都城', class: '固定菜式', time: '2016-05-31 11:22', remark: ''},
+                {name: '盐焗手撕鸡', price: '17.00', count: '1', canteen: '都城', class: '固定菜式', time: '2016-05-31 11:22', remark: ''}
+              ]
+            each list in lists
+              tr
+                td #{list.name}
+                td.aCenter #{list.price}
+                td.aCenter #{list.count}
+                td.aCenter #{list.canteen}
+                td #{list.class}
+                td.aCenter #{list.time}
+                td #{list.remark ? list.remark : '无'}
+block append base_foot
+  //- 全局脚本，生成base.js
+  script(type="text/javascript", src='/js/index.js')
+  script.
+    console.log(1)

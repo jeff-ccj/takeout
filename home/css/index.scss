@@ -1,0 +1,349 @@
+/*
+ * @class   样式-首页
+ * @author  Jeff Tsui
+ * @date    16.05.17
+ * @mail    jeff.ccjie@gmail.com
+ */
+
+//@require normalize.css
+//@require common.scss
+@mixin txtOverflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+
+//餐厅列表
+.canteen{
+  ul{
+    margin: 0;
+    padding: 0;
+  }
+  .canteenList{
+    list-style-type: none;
+    .canteenBlock{
+      display: block;
+      padding: 20px 10px 20px 18px;
+      color: #555;
+      border-bottom: 1px solid #ddd;
+      &:hover{
+        background-color: #eeeeee;
+      }
+      &.active{
+        background-color: #17a4fa;
+        color: #fff;
+        .canteenTips{
+          color: #f1f1f1;
+        }
+      }
+    }
+    .canteenName{
+      display: block;
+      font-weight: bold;
+      @include txtOverflow;
+    }
+    .canteenTips{
+      font-size: 1.4rem;
+      color: #999999;
+    }
+  }
+}
+
+
+
+
+//菜单类型
+.menuClass{
+  padding: 8px 15px 5px;
+  z-index: 101;
+  font-size: 1.4rem;
+    a{
+      display: inline-block;
+      margin: 5px;
+      padding: 4px 20px;
+      border-radius: 2px;
+      color: #666;
+      cursor: pointer;
+      @include txtOverflow;
+      &:hover{
+        background-color: #eeeeee;
+      }
+      &.active{
+        color: #ffffff;
+        background-color: #0089dc;
+      }
+    }
+}
+
+//菜单列表
+.menus{
+  padding-bottom: 60px;
+  .menusBlock{
+    overflow: hidden;
+  }
+  .menuClassTitle{
+    font-size: 2rem;
+    padding: 20px 0 10px 5px;
+  }
+  .menusBox{
+    .menuList{
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      overflow: hidden;
+      li{
+        position: relative;
+        float: left;
+        width: 49%;
+        margin-right: 2%;
+        padding: 0;
+        height: 100px;
+        margin-bottom: 15px;
+        &:nth-child(even){
+          margin-right: 0;
+        }
+      }
+      .menuPic{
+        float: left;
+        height: 100px;
+        width: 100px;
+        overflow: hidden;
+        img{
+          width: 100%;
+          min-height: 100%;
+          vertical-align: top;
+        }
+      }
+      .menuContent{
+        font-size: 1.4rem;
+        margin-left: 15px;
+        &.hasImg{
+          margin-left: 114px;
+        }
+        .menuTitle{
+          margin-top: 10px;
+          font-size: 1.6rem;
+          font-weight: bold;
+          @include txtOverflow;
+        }
+        .menuTips{
+          font-size: 1.2rem;
+          color: #999;
+        }
+        .menuPrice{
+          position: absolute;
+          bottom: 10px;
+          color: #f74342;
+          font-weight: bold;
+        }
+      }
+      .menuAddBox{
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        width: 90px;
+        .menuAddBtn{
+          display: block;
+          border-radius: 20px;
+          cursor: pointer;
+          line-height: 26px;
+          outline: 0 none;
+          text-align: center;
+          background-color: #0089dc;
+          color: #fff;
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+}
+
+.menuTool{
+  position: relative;
+  height: 24px;
+  line-height: 24px;
+  border: 1px solid #dddddd;
+  border-radius: 20px;
+  input[type='button']{
+    position: absolute;
+    top: 0;
+    width: 27px;
+    height: 100%;
+    padding: 0;
+    font-size: 1.4rem;
+    outline: 0 none;
+    text-align: center;
+    background-color: #eee;
+    border: 0 none;
+    &:active{
+      background-color: #dddddd;
+    }
+    &.menuToolCut{
+      border-radius: 20px 0 0 20px;
+      border-right: 1px solid #ddd;
+      cursor: pointer;
+      left: 0;
+    }
+    &.menuToolAdd{
+      border-left: 1px solid #ddd;
+      border-radius: 0 20px 20px 0;
+      cursor: pointer;
+      right: 0;
+    }
+  }
+  .menuToolTxt{
+    position: absolute;
+    left: 28px;
+    z-index: 1;
+    width: 32px;
+    height: 100%;
+    padding: 0;
+    font-size: 1.2rem;
+    text-align: center;
+    outline: 0 none;
+    border: none;
+    -webkit-appearance: none !important;
+    -moz-appearance:textfield;
+    margin: 0;
+
+  }
+}
+
+
+//购物车
+.menusCar{
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 320px;
+  z-index: 100;
+  background-color: #fff;
+  box-shadow: 0 1px 15px #ccc;
+  border-top: 2px solid #0089dc;
+  .cartTitle{
+    padding: 10px;
+    font-size: 1.4rem;
+    line-height: 25px;
+    background-color: #fafafa;
+    border-bottom: 1px solid #eeeeee;
+  }
+  .cartMenus{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    li{
+      position: relative;
+      padding: 10px;
+      line-height: 24px;
+      &:after{
+        position: absolute;
+        bottom: 0;
+        left: 10px;
+        right: 10px;
+        content: '';
+        border-bottom: 1px solid #eee;
+      }
+      &:hover{
+        background-color: #F5F5F5;
+        .cMenusClose{
+          display: block;
+        }
+      }
+    }
+    .cMenusTitle{
+      margin-right: 170px;
+      font-size: 1.4rem;
+      color: #666666;
+      @include txtOverflow;
+    }
+    .cMenusTool{
+      position: absolute;
+      right: 95px;
+      top: 50%;
+      width: 88px;
+      margin-top: -10px;
+      border-radius: 0;
+      height: 20px;
+      line-height: 20px;
+      .menuToolCut, .menuToolAdd{
+        background-color: #ffffff;
+        border-radius: 0;
+      }
+    }
+    .cMenusPrice{
+      position: absolute;
+      top: 0;
+      right: 25px;
+      width: 70px;
+      height: 100%;
+      padding: 10px 0;
+      color: #f17530;
+      text-align: right;
+      font-size: 1.4rem;
+    }
+    .cMenusClose{
+      display: none;
+      position: absolute;
+      right: 5px;
+      top: 50%;
+      color: #999999;
+      font-size: 1.2rem;
+      margin-top: -12px;
+      padding: 0 6px;
+      cursor: pointer;
+    }
+  }
+  .cartContent{
+    position: relative;
+    height: 46px;
+    padding: 0 20px;
+    z-index: 2;
+    background-color: #2c2c2c;
+    line-height: 46px;
+    color: #ffffff;
+    .icon-cart{
+      font-size: 2.4rem;
+    }
+    .cCount{
+      position: absolute;
+      left: 36px;
+      top: 2px;
+      min-width: 20px;
+      height: 20px;
+      font-size: 1.2rem;
+      line-height: 20px;
+      padding: 0 3px;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      background-color: #ff2828;
+      border-radius: 50%;
+      text-align: center;
+    }
+    .cPrice{
+      padding-left: 20px;
+      font-size: 2.6rem;
+      &:before{
+        font-size: 1.4rem;
+      }
+    }
+    .cartSubmit{
+      position: absolute;
+      right: 0;
+      width: 100px;
+      height: 46px;
+      text-align: center;
+      background-color: #47cb57;
+      color: #ffffff;
+      cursor: pointer;
+      &:active{
+        background-color: #29b83a;
+      }
+    }
+  }
+}
+
+
+//小于768的话,处理单行
